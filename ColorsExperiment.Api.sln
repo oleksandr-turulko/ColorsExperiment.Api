@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorsExperiment.Api", "ColorsExperiment.Api\ColorsExperiment.Api.csproj", "{6DE4E77E-4C88-485E-A419-2DDA615B96EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{DADB322E-73DC-4CE7-B1B6-E529E4166EDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{13650334-1FF5-4321-B727-63974337D3C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{D62ED1B7-CB1E-4A8E-B5E5-F7925EA391B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repos", "repos", "{89F18B9C-51DA-476B-93C8-7851F259518F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "models", "models", "{9FC4E6BD-A821-433E-ABCD-790C463C28F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorsExperiment.Data", "ColorsExperiment.Data\ColorsExperiment.Data.csproj", "{38786E58-723A-4ED4-A2C6-092E678BB139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorsExperiment.Models", "ColorsExperiment.Models\ColorsExperiment.Models.csproj", "{1C34CCD2-547F-4245-BAA9-6120747B90FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorsExperiment.Repos", "ColorsExperiment.Repos\ColorsExperiment.Repos.csproj", "{E9C599DE-D9EF-4599-BCDF-37692BDB797C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DE4E77E-4C88-485E-A419-2DDA615B96EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE4E77E-4C88-485E-A419-2DDA615B96EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE4E77E-4C88-485E-A419-2DDA615B96EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE4E77E-4C88-485E-A419-2DDA615B96EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38786E58-723A-4ED4-A2C6-092E678BB139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38786E58-723A-4ED4-A2C6-092E678BB139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38786E58-723A-4ED4-A2C6-092E678BB139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38786E58-723A-4ED4-A2C6-092E678BB139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C34CCD2-547F-4245-BAA9-6120747B90FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C34CCD2-547F-4245-BAA9-6120747B90FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C34CCD2-547F-4245-BAA9-6120747B90FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C34CCD2-547F-4245-BAA9-6120747B90FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C599DE-D9EF-4599-BCDF-37692BDB797C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C599DE-D9EF-4599-BCDF-37692BDB797C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C599DE-D9EF-4599-BCDF-37692BDB797C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C599DE-D9EF-4599-BCDF-37692BDB797C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6DE4E77E-4C88-485E-A419-2DDA615B96EB} = {13650334-1FF5-4321-B727-63974337D3C9}
+		{89F18B9C-51DA-476B-93C8-7851F259518F} = {DADB322E-73DC-4CE7-B1B6-E529E4166EDD}
+		{9FC4E6BD-A821-433E-ABCD-790C463C28F9} = {DADB322E-73DC-4CE7-B1B6-E529E4166EDD}
+		{38786E58-723A-4ED4-A2C6-092E678BB139} = {DADB322E-73DC-4CE7-B1B6-E529E4166EDD}
+		{1C34CCD2-547F-4245-BAA9-6120747B90FB} = {9FC4E6BD-A821-433E-ABCD-790C463C28F9}
+		{E9C599DE-D9EF-4599-BCDF-37692BDB797C} = {89F18B9C-51DA-476B-93C8-7851F259518F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21FB48CC-1D77-480D-9488-B8C5E4145646}
+	EndGlobalSection
+EndGlobal
