@@ -1,4 +1,5 @@
 using ColorsExperiment.Data.Context;
+using ColorsExperiment.Repos.ColorsExperimentRepo;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ColorsExperimentDbContext>(o =>
     o.UseSqlServer(builder.Configuration.GetConnectionString("mssqlConnection")));
+
+builder.Services.AddScoped<IColorsExperimentRepo, SqlColorsExperimentRepo>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

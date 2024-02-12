@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ColorsExperiment.Data\ColorsExperiment.Data.csproj" />
+    <ProjectReference Include="..\ColorsExperiment.Repos\ColorsExperiment.Repos.csproj" />
   </ItemGroup>
 
 </Project>

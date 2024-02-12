@@ -7,7 +7,16 @@ namespace ColorsExperiment.Repos.ColorsExperimentRepo
         : BaseRepo(context), IColorsExperimentRepo
     {
 
+        private async Task<string> GetRandomColorCode()
+        {
 
+            return "";
+        }
 
+        public async Task<KeyValuePair<string, string>> GetButtonByDeviceToken(string deviceToken)
+        {
+
+            return new KeyValuePair<string, string>("key", "value");
+        }
     }
 }
