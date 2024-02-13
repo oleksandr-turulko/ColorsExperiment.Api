@@ -4,7 +4,6 @@ using Experiments.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,13 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ColorsExperiment.Data.Migrations
 {
     [DbContext(typeof(ExperimentsDbContext))]
-    [Migration("20240211134439_Init")]
-    partial class Init
+    partial class ExperimentDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
@@ -31,11 +27,11 @@ namespace ColorsExperiment.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ClientExperimentKey")
+                    b.Property<string>("ExperimentKey")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Value")
+                    b.Property<string>("DeviceToken")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -43,7 +39,6 @@ namespace ColorsExperiment.Data.Migrations
 
                     b.ToTable("Experiments");
                 });
-#pragma warning restore 612, 618
         }
     }
 }

@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ColorsExperiment.Data\ColorsExperiment.Data.csproj" />
-    <ProjectReference Include="..\ColorsExperiment.Repos\ColorsExperiment.Repos.csproj" />
+    <ProjectReference Include="..\ColorsExperiment.Data\Experiments.Data.csproj" />
+    <ProjectReference Include="..\ColorsExperiment.Repos\Experiments.Repos.csproj" />
   </ItemGroup>
 
 </Project>
