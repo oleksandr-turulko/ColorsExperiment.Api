@@ -18,5 +18,10 @@ namespace Experiments.Api.Controllers
         [HttpGet("button-color")]
         public async Task<IActionResult> GetButtonColorExperiment(string deviceToken)
             => Ok(await _experimentsRepo.GetColorForDevice(deviceToken));
+
+
+        [HttpGet("price")]
+        public async Task<IActionResult> GetPriceExperiment(string deviceToken)
+            => Ok(await _experimentsRepo.GetPriceForDevice(deviceToken));
     }
 }
