@@ -15,8 +15,8 @@ namespace ColorsExperiment.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ClientExperimentKey = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ClientExperimentKey = table.Column<string>(type: "nvarchar(10)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(200)", nullable: false)
                 },
                 constraints: table =>
                 {

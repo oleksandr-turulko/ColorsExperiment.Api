@@ -1,9 +1,9 @@
-﻿using ColorsExperiment.Data.Context;
+﻿using Experiments.Data.Context;
 
-namespace ColorsExperiment.Repos.Abstract
+namespace Experiments.Repos.Abstract
 {
-    public abstract class BaseRepo(ColorsExperimentDbContext context)
+    public abstract class BaseRepo(ExperimentsDbContext context)
     {
-        protected ColorsExperimentDbContext _db = context;
+        protected ExperimentsDbContext _db = context;
     }
 }

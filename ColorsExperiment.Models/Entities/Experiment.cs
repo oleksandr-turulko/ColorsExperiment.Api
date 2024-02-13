@@ -1,9 +1,16 @@
-﻿namespace ColorsExperiment.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Experiments.Models.Entities
 {
     public class Experiment
     {
+        [Key]
         public Guid Id { get; set; }
-        public string ClientExperimentKey { get; set; }
+        [MaxLength(20)]
+        public string ExperimentKey { get; set; }
+        [MaxLength(10)]
+        public string DeviceToken { get; set; }
+        [MaxLength(10)]
         public string Value { get; set; }
     }
 }
