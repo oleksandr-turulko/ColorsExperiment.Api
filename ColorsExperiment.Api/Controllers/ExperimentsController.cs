@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Experiments.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("experiment")]
     public class ExperimentsController : ControllerBase
     {
         private readonly IExperimentsRepo _experimentsRepo;
@@ -17,12 +17,6 @@ namespace Experiments.Api.Controllers
 
         [HttpGet("button-color")]
         public async Task<IActionResult> GetButtonColorExperiment(string deviceToken)
-            => Ok(await _experimentsRepo.GetColorForDeviceToken(deviceToken));
-
-
-        [HttpGet("price")]
-        public async Task<IActionResult> GetPriceExperiment(string deviceToken)
-        => Ok(await _experimentsRepo.GetPriceForDeviceToken(deviceToken));
-
+            => Ok(await _experimentsRepo.GetColorForDevice(deviceToken));
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Experiments.Data.Context;
-using Experiments.Models.Entities;
 using Experiments.Repos.Abstract;
 
 namespace Experiments.Repos.ExperimentsRepo
@@ -20,31 +19,36 @@ namespace Experiments.Repos.ExperimentsRepo
                 _ => "#0000FF"
             };
         }
+        private async Task<decimal> GetRandomPrice()
+        {
+            var random = new Random();
+            var colorSelector = random.NextDouble() * 100;
 
-        public async Task<KeyValuePair<string, string>> GetColorForDeviceToken(string deviceToken)
+            return colorSelector switch
+            {
+                < 5 => 50,
+                > 5 and < 15 => 20,
+                > 15 and < 25 => 5,
+                _ => 10
+            };
+        }
+
+        private async Task<KeyValuePair<string, string>> CreateNewExperiment()
+        {
+            var createProcedure = $"";
+
+            return new KeyValuePair<string, string>();
+        }
+
+        public async Task<KeyValuePair<string, string>> GetColorForDevice(string deviceToken)
         {
             //does same device token exist in db
             var experimentCase = await _db.Experiments.FindAsync(deviceToken);
 
             if (experimentCase == null)
-            {
-                //create new 
-                var newExperiment = new Experiment
-                {
-                    Id = Guid.NewGuid(),
-                    ExperimentKey = ""
-                };
-                //and return
-            }
-
-            //return 
+                return await CreateNewExperiment();
 
             return new KeyValuePair<string, string>("key", "value");
-        }
-
-        public Task<KeyValuePair<string, decimal>> GetPriceForDeviceToken(string deviceToken)
-        {
-            throw new NotImplementedException();
         }
     }
 }

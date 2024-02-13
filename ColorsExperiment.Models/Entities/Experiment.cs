@@ -10,7 +10,7 @@ namespace Experiments.Models.Entities
         public string ExperimentKey { get; set; }
         [MaxLength(10)]
         public string DeviceToken { get; set; }
-        [MaxLength(6)]
+        [MaxLength(10)]
         public string Value { get; set; }
     }
 }
