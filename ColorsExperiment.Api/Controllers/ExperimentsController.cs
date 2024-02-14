@@ -23,5 +23,10 @@ namespace Experiments.Api.Controllers
         [HttpGet("price")]
         public async Task<IActionResult> GetPriceExperiment(string deviceToken)
             => Ok(await _experimentsRepo.GetPriceForDevice(deviceToken));
+
+        [HttpGet("statistics")]
+        public async Task<IActionResult> GetExperimentResults(string experimentKey)
+            => Ok(await _experimentsRepo.GetExperimentResults(experimentKey));
+
     }
 }
