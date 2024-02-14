@@ -1,4 +1,5 @@
 ﻿using Experiments.Data.Context;
+using Experiments.Models.Dtos.Stats;
 using Experiments.Repos.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
@@ -93,5 +94,18 @@ namespace Experiments.Repos.ExperimentsRepo
             decimal.TryParse(experimentCase.Value, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal value);
             return new KeyValuePair<string, decimal>(experimentCase.ExperimentKey, Math.Round(value));
         }
+
+        public async Task<object> GetExperimentResults(string experimentKey)
+        => await _db.Experiments
+                .Where(e => e.ExperimentKey == experimentKey)
+                .GroupBy(e => e.Value)
+                .Select(g => new
+                {
+                    ExperimentCase = g.Key,
+                    DevicesCount = g.Count()
+                })
+                .Select(q => new GetExperimentStatsDto(q.ExperimentCase, q.DevicesCount))
+                .ToListAsync();
+
     }
 }
