@@ -1,5 +1,7 @@
 ﻿using Experiments.Data.Context;
 using Experiments.Repos.Abstract;
+using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace Experiments.Repos.ExperimentsRepo
 {
@@ -33,22 +35,63 @@ namespace Experiments.Repos.ExperimentsRepo
             };
         }
 
-        private async Task<KeyValuePair<string, string>> CreateNewExperiment()
+        private async Task<KeyValuePair<string, string>> CreateNewColorExperiment(string deviceToken)
         {
-            var createProcedure = $"";
+            var randomColorCode = await GetRandomColorCode();
+            try
+            {
+                await _db.Database.ExecuteSqlAsync($"INSERT INTO Experiments (Id, ExperimentKey,DeviceToken,Value) Values({Guid.NewGuid()},'button_color',{deviceToken},{randomColorCode})");
 
-            return new KeyValuePair<string, string>();
+                return new KeyValuePair<string, string>("button_color", randomColorCode);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
+
+        private async Task<KeyValuePair<string, decimal>> CreateNewPriceExperiment(string deviceToken)
+        {
+            var randomPrice = await GetRandomPrice();
+            try
+            {
+                await _db.Database.ExecuteSqlAsync($"INSERT INTO Experiments (Id, ExperimentKey,DeviceToken,Value) Values({Guid.NewGuid()},'price',{deviceToken},{randomPrice})");
+
+                return new KeyValuePair<string, decimal>("price", randomPrice);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
         }
 
         public async Task<KeyValuePair<string, string>> GetColorForDevice(string deviceToken)
         {
-            //does same device token exist in db
-            var experimentCase = await _db.Experiments.FindAsync(deviceToken);
+            //does same device token exist fror this experiment in db
+
+            var experimentCase = _db.Experiments
+                .FromSqlInterpolated($"SELECT * FROM [Experiments] WHERE [Experiments].[ExperimentKey] = 'button_color' and [Experiments].[DeviceToken] = {deviceToken}")
+                .FirstOrDefault();
+            // in case if doesn't create new
+            if (experimentCase == null)
+                return await CreateNewColorExperiment(deviceToken);
+
+            return new KeyValuePair<string, string>(experimentCase.ExperimentKey, experimentCase.Value);
+        }
+
+        public async Task<KeyValuePair<string, decimal>> GetPriceForDevice(string deviceToken)
+        {
+            var experimentCase = _db.Experiments
+                .FromSqlInterpolated($"SELECT * FROM [Experiments] WHERE [Experiments].[ExperimentKey] = 'price' and [Experiments].[DeviceToken] = {deviceToken}")
+                .FirstOrDefault();
 
             if (experimentCase == null)
-                return await CreateNewExperiment();
+                return await CreateNewPriceExperiment(deviceToken);
 
-            return new KeyValuePair<string, string>("key", "value");
+            decimal.TryParse(experimentCase.Value, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal value);
+            return new KeyValuePair<string, decimal>(experimentCase.ExperimentKey, Math.Round(value));
         }
     }
 }
