@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{DADB322E-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{13650334-1FF5-4321-B727-63974337D3C9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repos", "repos", "{89F18B9C-51DA-476B-93C8-7851F259518F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repositories", "repositories", "{89F18B9C-51DA-476B-93C8-7851F259518F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "models", "models", "{9FC4E6BD-A821-433E-ABCD-790C463C28F9}"
 EndProject
@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Experiments.Data", "ColorsE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Experiments.Models", "ColorsExperiment.Models\Experiments.Models.csproj", "{1C34CCD2-547F-4245-BAA9-6120747B90FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Experiments.Repos", "ColorsExperiment.Repos\Experiments.Repos.csproj", "{E9C599DE-D9EF-4599-BCDF-37692BDB797C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Experiments.Repositories", "ColorsExperiment.Repos\Experiments.Repositories.csproj", "{E9C599DE-D9EF-4599-BCDF-37692BDB797C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0144B4E1-E633-4AA2-80EE-1B7B71802AC7}"
 EndProject
@@ -25,9 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit-tests", "unit-tests", "{0C3F8EAF-31FC-4D53-9648-AFE40BE9E73F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experiments.Benchmark", "Experiments.Benchmark\Experiments.Benchmark.csproj", "{D7F5D6B8-8ED5-42A1-B6EB-412EEC645B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Experiments.Benchmark", "Experiments.Benchmark\Experiments.Benchmark.csproj", "{D7F5D6B8-8ED5-42A1-B6EB-412EEC645B9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experiments.Tests", "Experiments.Tests\Experiments.Tests.csproj", "{AA9E0C43-0B63-4AC9-B657-998BCCDB1CFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Experiments.Tests", "Experiments.Tests\Experiments.Tests.csproj", "{AA9E0C43-0B63-4AC9-B657-998BCCDB1CFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

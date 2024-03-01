@@ -1,4 +1,4 @@
-﻿using Experiments.Repos.ExperimentsRepo;
+﻿using Experiments.Repositories.Experiments;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Experiments.Api.Controllers
@@ -7,9 +7,9 @@ namespace Experiments.Api.Controllers
     [Route("experiment")]
     public class ExperimentsController : ControllerBase
     {
-        private readonly IExperimentsRepo _experimentsRepo;
+        private readonly IExperimentsRepository _experimentsRepo;
 
-        public ExperimentsController(IExperimentsRepo experimentsRepo)
+        public ExperimentsController(IExperimentsRepository experimentsRepo)
         {
             _experimentsRepo = experimentsRepo;
         }

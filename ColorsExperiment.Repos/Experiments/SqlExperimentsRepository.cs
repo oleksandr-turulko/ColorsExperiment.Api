@@ -1,13 +1,13 @@
 ﻿using Experiments.Data.Context;
 using Experiments.Models.Dtos.Stats;
-using Experiments.Repos.Abstract;
+using Experiments.Repositories.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
-namespace Experiments.Repos.ExperimentsRepo
+namespace Experiments.Repositories.Experiments
 {
-    public class SqlExperimentsRepo(ExperimentsDbContext context)
-        : BaseRepo(context), IExperimentsRepo
+    public class SqlExperimentsRepository(ExperimentsDbContext context)
+        : BaseRepository(context), IExperimentsRepository
     {
 
         private async Task<string> GetRandomColorCode()
@@ -70,12 +70,13 @@ namespace Experiments.Repos.ExperimentsRepo
 
         public async Task<KeyValuePair<string, string>> GetColorForDevice(string deviceToken)
         {
-            //does same device token exist fror this experiment in db
+            //does same device token exist for this experiment in db
 
             var experimentCase = _db.Experiments
-                .FromSqlInterpolated($"SELECT * FROM [Experiments] WHERE [Experiments].[ExperimentKey] = 'button_color' and [Experiments].[DeviceToken] = {deviceToken}")
+                .FromSqlInterpolated(
+                    $"SELECT * FROM [Experiments] WHERE [Experiments].[ExperimentKey] = 'button_color' and [Experiments].[DeviceToken] = {deviceToken}")
                 .FirstOrDefault();
-            // in case if doesn't create new
+            // in case experiment doesn't exist create new
             if (experimentCase == null)
                 return await CreateNewColorExperiment(deviceToken);
 

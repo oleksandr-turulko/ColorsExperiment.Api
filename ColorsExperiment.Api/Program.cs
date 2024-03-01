@@ -1,5 +1,5 @@
 using Experiments.Data.Context;
-using Experiments.Repos.ExperimentsRepo;
+using Experiments.Repositories.Experiments;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ExperimentsDbContext>(o =>
     o.UseSqlServer(builder.Configuration.GetConnectionString("mssqlConnection")));
 
-builder.Services.AddScoped<IExperimentsRepo, SqlExperimentsRepo>();
+builder.Services.AddScoped<IExperimentsRepository, SqlExperimentsRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

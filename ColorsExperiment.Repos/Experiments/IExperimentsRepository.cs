@@ -1,6 +1,6 @@
-﻿namespace Experiments.Repos.ExperimentsRepo
+﻿namespace Experiments.Repositories.Experiments
 {
-    public interface IExperimentsRepo
+    public interface IExperimentsRepository
     {
         Task<KeyValuePair<string, string>> GetColorForDevice(string deviceToken);
         Task<KeyValuePair<string, decimal>> GetPriceForDevice(string deviceToken);

@@ -1,12 +1,12 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using Experiments.Data.Context;
-using Experiments.Repos.ExperimentsRepo;
+using Experiments.Repositories.Experiments;
 using Microsoft.EntityFrameworkCore;
 
 public class ExperimentsRepoBenchmark
 {
-    private readonly IExperimentsRepo _repo;
+    private readonly IExperimentsRepository _repo;
     private string deviceToken;
 
     public ExperimentsRepoBenchmark()
@@ -16,7 +16,7 @@ public class ExperimentsRepoBenchmark
         var dbContextOptions = optionsBuilder.Options;
         var dbContext = new ExperimentsDbContext(dbContextOptions);
 
-        _repo = new SqlExperimentsRepo(dbContext);
+        _repo = new SqlExperimentsRepository(dbContext);
 
         deviceToken = "device1";
     }

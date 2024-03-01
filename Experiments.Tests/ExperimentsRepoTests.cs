@@ -1,15 +1,14 @@
 using Experiments.Data.Context;
 using Experiments.Models.Dtos.Stats;
-using Experiments.Repos.ExperimentsRepo;
+using Experiments.Repositories.Experiments;
 using Microsoft.EntityFrameworkCore;
 
 namespace Experiments.Tests
-
 {
     public class ExperimentsRepoTests
     {
 
-        private readonly IExperimentsRepo _repo;
+        private readonly IExperimentsRepository _repo;
 
         public ExperimentsRepoTests()
         {
@@ -17,7 +16,7 @@ namespace Experiments.Tests
             optionsBuilder.UseSqlServer("Server=localhost;Database=ColorsExperimentDb;User Id=admin;Password=admin;TrustServerCertificate=true;");
             var dbContextOptions = optionsBuilder.Options;
             var dbContext = new ExperimentsDbContext(dbContextOptions);
-            _repo = new SqlExperimentsRepo(dbContext);
+            _repo = new SqlExperimentsRepository(dbContext);
         }
 
         [Fact]
@@ -64,6 +63,4 @@ namespace Experiments.Tests
             Assert.IsType<List<GetExperimentStatsDto>>(result);
         }
     }
-
-
 }
